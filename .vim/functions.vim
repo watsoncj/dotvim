@@ -60,3 +60,12 @@ function! MapCR()
   nnoremap <silent> <enter> :call CRWriteIfNecessary()<CR>
 endfunction
 call MapCR()
+
+
+" ---------------
+"  Search Highlighting
+"
+"  Press space to clear highlight.
+" ---------------
+set hlsearch
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
