@@ -10,7 +10,6 @@ Plug 'regedarek/ZoomWin', { 'on': 'ZoomWin' }
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/UnconditionalPaste'
 
-
 " ---------
 " UI Additions
 " ---------
@@ -32,28 +31,18 @@ Plug 'mhinz/vim-signify'
 " ---------
 " Color Palettes
 " ---------
-"Plug 'w0ng/vim-hybrid' " not bad with set background=dark
 Plug 'nanotech/jellybeans.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'kristijanhusak/vim-hybrid-material'
-"Plug 'orthecreedence/void.vim'
 Plug 'wellsjo/wellsokai.vim'
-Plug 'baskerville/bubblegum' " love! colorscheme bubblegum-256-dark
-Plug 'romainl/Apprentice' " great but no airline theme
-" Plug 'chriskempson/base16-vim'
+Plug 'baskerville/bubblegum'
+Plug 'romainl/Apprentice'
 Plug 'zacanger/angr.vim'
-Plug 'AlessandroYorba/Despacio' " no airline theme
-"Plug 'muellan/am-colors'
 Plug 'YorickPeterse/happy_hacking.vim' " great with bubblegum airline theme
-"Plug 'rakr/vim-two-firewatch'
 Plug 'scwood/vim-hybrid'
 Plug 'AlessandroYorba/Monrovia'
 Plug 'xterm16.vim'
 Plug 'geetarista/ego.vim'
-"Plug 'inkpot'
-"Plug 'pyte'
-"Plug 'romainl/Apprentice'
-"Plug 'tomasr/molokai'
 Plug 'mhinz/vim-janah'
 
 " ---------
@@ -62,7 +51,8 @@ Plug 'mhinz/vim-janah'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'MarcWeber/vim-addon-local-vimrc'
-
+" Repeat.vim remaps . in a way that plugins can tap into it.
+Plug 'tpope/vim-repeat'
 " Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 " Plug 'godlygeek/tabular'
@@ -71,24 +61,25 @@ Plug 'rking/ag.vim'
 " "Plug 'AndrewRadev/sideways.vim'
 " "Plug 'tpope/vim-abolish'
 " "Plug 'scratch.vim'
-" "Plug 'mattn/emmet-vim'
 " Plug 'AndrewRadev/switch.vim'
 " "Plug 'tpope/vim-eunuch'
 Plug 'mutewinter/UnconditionalPaste'
 " Plug 'HelpClose'
 Plug 'dansomething/vim-visual-star-search'
 " Plug 'AndrewRadev/splitjoin.vim'
-" "Plug 'tpope/vim-dispatch'
-" Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-dispatch'
+"Plug 'skywind3000/asyncrun.vim'
+"Plug 'AnsiEsc.vim'
+" Plug 'mattboehm/vim-unstack'
 
-" Automatic Helpers
+" ---------------
+"  Automatic Helpers
+" ---------------
 " Plug 'vim-scripts/SyntaxComplete'
-" Plug 'MarcWeber/vim-addon-local-vimrc'
 " Plug 'Raimondi/delimitMate'
 " Plug 'ervandew/supertab'
 " Plug 'Valloric/MatchTagAlways'
 " Plug 'Valloric/YouCompleteMe'
-" endif
 " Plug 'SirVer/ultisnips'
 " Plug 'dansomething/vim-snippets'
 " "Plug 'honza/vim-snippets'
@@ -96,36 +87,40 @@ Plug 'dansomething/vim-visual-star-search'
 " Plug 'szw/vim-tags'
 " Plug 'editorconfig/editorconfig-vim'
 " Plug 'samsonw/vim-task'
-" "   JavaScript
-" Plug 'pangloss/vim-javascript'
+"
+" ---------------
+"  JavaScript
+" ---------------
+Plug 'pangloss/vim-javascript'
 " Plug 'kchmck/vim-coffee-script'
 " Plug 'elzr/vim-json'
 " Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'Chiel92/vim-autoformat'
-" "   HTML
+" Plug 'Chiel92/vim-autoformat' " Requires Python support
+"
+" ---------------
+"   HTML
+" ---------------
 " Plug 'mustache/vim-mustache-handlebars'
 " Plug 'othree/html5.vim'
 " Plug 'indenthtml.vim'
-" "   Other Languages
-" Plug 'hail2u/vim-css3-syntax'
-" Plug 'groenewege/vim-less'
-" Plug 'tpope/vim-cucumber'
-" Plug 'dansomething/ftl-vim-syntax'
-" Plug 'tfnico/vim-gradle'
-" Plug 'andersoncustodio/vim-tmux'
-" " MatchIt
-" Plug 'matchit.zip'
-" " Libraries
-" "Plug 'L9'
-" Repeat.vim remaps . in a way that plugins can tap into it.
-Plug 'tpope/vim-repeat'
-"   Plug 'mattboehm/vim-unstack'
+"
+" ---------------
+"  Libraries
+" ---------------
+" Plug 'L9'
+"
+" ---------------
+"  PowerShell
+" ---------------
+Plug 'PProvost/vim-ps1'
+
 call plug#end()
 
 " ---------------
 " AutoFormat
 " ---------------
-autocmd BufWritePre *.js Autoformat
+" This is busted in NeoVim
+"autocmd BufWritePre *.js Autoformat
 
 " ---------------
 " Syntastic
@@ -141,6 +136,7 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_full_redraws = 1
 let g:syntastic_javascript_checkers = ['jscs']
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " ---------------
 " NERDTree
@@ -153,12 +149,6 @@ let g:NERDTreeChDirMode = 2 " Change the NERDTree directory to the root node
 let g:NERDTreeMinimalUI = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
   \&& b:NERDTreeType == "primary") | q | endif
-
-" ---------------
-" Indent Guides
-" ---------------
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
 " ---------------
 " Fugitive
@@ -180,7 +170,7 @@ nnoremap <Leader>gx :wincmd h<CR>:q<CR>
 " Start git command
 nnoremap <leader>gi :Git<space>
 " Undo the last commit
-command! Gcundo :Git reset HEAD~1 
+command! Gcundo :Git reset HEAD~1
 
 " ---------------
 " Zoomwin
@@ -209,44 +199,84 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>u :CtrlPCurFile<CR>
 nnoremap <leader>m :CtrlPMRUFiles<CR>
 
-if executable('ag')
-  " Use ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+"if executable('ag')
+"  " Use ag over Grep
+"  set grepprg=ag\ --nogroup\ --nocolor
+"
+"  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+"  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+"
+"  " ag is fast enough that CtrlP doesn't need to cache
+"  let g:ctrlp_use_caching = 0
+"endif
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_working_path_mode = 2
+nnoremap <silent> <D-t> :CtrlP<CR>
+nnoremap <silent> <D-r> :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$' }
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+    \ 'fallback': 'find %s -type f'
+\ }
+
+" ---------------
+"  Color Scheme
+" ---------------
+set background=dark
+colorscheme angr
+"colorscheme bubblegum-256-dark
+" let g:solarized_termcolors=256
+"colorscheme solarized
+
+" ---------------
+" Indent Guides
+" ---------------
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+" bubblegum
+"hi IndentGuidesOdd ctermbg=236
+" angr
+hi IndentGuidesOdd ctermbg=237
 
 " ---------------
 " airline
 " ---------------
-let g:airline_theme = 'jellybeans'
+"let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'angr'
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#tab_min_count = 0
+"let g:airline#extensions#tabline#show_tab_nr = 0
+"let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#eclim#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#whitespace#enabled = 1
+"let g:airline#extensions#tabline#show_close_button = 0
+"let g:airline#extensions#eclim#enabled = 0
+"let g:airline#extensions#hunks#enabled = 0
+"let g:airline#extensions#whitespace#enabled = 1
+let g:skip_empty_section = 1
 "let g:airline_mode_map = {
+"      \ '__' : '-',
 "      \ 'n'  : 'N',
 "      \ 'i'  : 'I',
 "      \ 'R'  : 'R',
-"      \ 'v'  : 'V',
-"      \ 'V'  : 'VL',
 "      \ 'c'  : 'CMD',
-"      \ '' : 'VB',
+"      \ 'v'  : 'V',
+"      \ 'V'  : 'V',
+"      \ 's'  : 'S',
+"      \ 'S'  : 'S'
 "      \ }
-" Just show the file name
-let g:airline_section_c = '%t'
-"let g:airline_section_z = airline#section#create(['%{ObsessionStatus(''$'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
+"" Just show the file name
+""let g:airline_section_c = '%t'
+"column"let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v '])
+"let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 " ---------------
 " Ag.vim
@@ -271,3 +301,7 @@ let g:UnconditionalPaste_NoDefaultMappings = 1
 nnoremap gcP <Plug>UnconditionalPasteCharBefore
 nnoremap gcp <Plug>UnconditionalPasteCharAfter
 
+" ---------------
+"  Bigger quickfix window, helpful for Dispatch
+" ---------------
+:autocmd FileType qf 30wincmd _
