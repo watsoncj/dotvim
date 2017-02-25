@@ -1,7 +1,9 @@
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'
 
+" ---------
 " Search / navigation
+" ---------
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'regedarek/ZoomWin', { 'on': 'ZoomWin' }
 
