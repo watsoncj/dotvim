@@ -1,5 +1,5 @@
 " Most of this is from dansomething/dot_vim/functions.js
- 
+
 " ---------------
 " Paste using Paste Mode
 "
@@ -25,7 +25,7 @@ nnoremap <silent> <leader>p :PasteWithPasteMode<CR>
 " Writes the current buffer if it's needed, unless we're the in QuickFix mode.
 " ---------------
 
-function WriteBufferIfNecessary()
+function! WriteBufferIfNecessary()
   if &modified && !&readonly
     :write
   endif
@@ -38,14 +38,14 @@ command! WriteBufferIfNecessary call WriteBufferIfNecessary()
 " Writes the current buffer if it's not readonly, unless we're the in QuickFix mode.
 " ---------------
 
-function WriteBufferIfAble()
+function! WriteBufferIfAble()
   if !&readonly
     :write
   endif
 endfunction
 command! WriteBufferIfAble call WriteBufferIfAble()
 
-function CRWriteIfNecessary()
+function! CRWriteIfNecessary()
   if &filetype == "qf"
     " Execute a normal enter when in Quickfix list.
     execute "normal! \<enter>"
@@ -69,3 +69,16 @@ call MapCR()
 " ---------------
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" ---------------
+"  Grunt
+"  Uses Dispatch if loaded.
+" ---------------
+function! s:Grunt(bang, args)
+  if exists("g:loaded_dispatch")
+      execute ':Dispatch grunt --no-color ' . a:args
+  else
+      execute ':!grunt ' . a:args
+  endif
+endfunction
+command! -bar -bang -nargs=* Grunt call s:Grunt(<bang>0,<q-args>)
