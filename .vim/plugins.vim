@@ -11,23 +11,52 @@ Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/UnconditionalPaste'
 
 
+" ---------
 " UI Additions
+" ---------
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-unimpaired'
-"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeFocus'] }
 " Plug 'majutsushi/tagbar'
-" Plug 'Rykka/colorv.vim'
-Plug 'nanotech/jellybeans.vim'
+Plug 'Rykka/colorv.vim'
 Plug 'mhinz/vim-signify'
 " Plug 'mhinz/vim-startify'
 " Plug 'mbbill/undotree'
 " Plug 'jszakmeister/vim-togglecursor'
 " Plug 'kien/rainbow_parentheses.vim'
 " Plug 'edkolev/tmuxline.vim'
-"
+
+" ---------
+" Color Palettes
+" ---------
+"Plug 'w0ng/vim-hybrid' " not bad with set background=dark
+Plug 'nanotech/jellybeans.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'kristijanhusak/vim-hybrid-material'
+"Plug 'orthecreedence/void.vim'
+Plug 'wellsjo/wellsokai.vim'
+Plug 'baskerville/bubblegum' " love! colorscheme bubblegum-256-dark
+Plug 'romainl/Apprentice' " great but no airline theme
+" Plug 'chriskempson/base16-vim'
+Plug 'zacanger/angr.vim'
+Plug 'AlessandroYorba/Despacio' " no airline theme
+"Plug 'muellan/am-colors'
+Plug 'YorickPeterse/happy_hacking.vim' " great with bubblegum airline theme
+"Plug 'rakr/vim-two-firewatch'
+Plug 'scwood/vim-hybrid'
+Plug 'AlessandroYorba/Monrovia'
+Plug 'xterm16.vim'
+Plug 'geetarista/ego.vim'
+"Plug 'inkpot'
+"Plug 'pyte'
+"Plug 'romainl/Apprentice'
+"Plug 'tomasr/molokai'
+Plug 'mhinz/vim-janah'
+
+" ---------
 " Commands
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
