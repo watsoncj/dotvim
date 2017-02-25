@@ -58,8 +58,10 @@ Plug 'mhinz/vim-janah'
 
 " ---------
 " Commands
+" ---------
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
+Plug 'tpope/vim-fugitive'
+Plug 'MarcWeber/vim-addon-local-vimrc'
 
 " Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
