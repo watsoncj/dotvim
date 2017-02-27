@@ -304,4 +304,8 @@ nnoremap gcp <Plug>UnconditionalPasteCharAfter
 " ---------------
 "  Bigger quickfix window, helpful for Dispatch
 " ---------------
-:autocmd FileType qf 30wincmd _
+:autocmd FileType qf call SetQuickFixOpts()
+function! SetQuickFixOpts()
+    30wincmd _
+    nnoremap <buffer> q :q<cr>
+endfunction
