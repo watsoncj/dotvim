@@ -82,3 +82,8 @@ function! s:Grunt(bang, args)
   endif
 endfunction
 command! -bar -bang -nargs=* Grunt call s:Grunt(<bang>0,<q-args>)
+
+" ---------------
+"  Markdown Date Header
+" ---------------
+:autocmd FileType markdown nnoremap <buffer> <leader>d :read !date +"\#\# \%b \%d"<cr>
