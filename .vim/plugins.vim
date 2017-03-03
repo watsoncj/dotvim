@@ -61,7 +61,7 @@ Plug 'rking/ag.vim'
 " "Plug 'AndrewRadev/sideways.vim'
 " "Plug 'tpope/vim-abolish'
 " "Plug 'scratch.vim'
-" Plug 'AndrewRadev/switch.vim'
+ Plug 'AndrewRadev/switch.vim'
 " "Plug 'tpope/vim-eunuch'
 Plug 'mutewinter/UnconditionalPaste'
 " Plug 'HelpClose'
@@ -309,6 +309,18 @@ function! SetQuickFixOpts()
     30wincmd _
     nnoremap <buffer> q :q<cr>
 endfunction
+
+" ---------------
+"  switch.vim
+" ---------------
+let g:switch_mapping = "-"
+autocmd FileType markdown let g:switch_custom_definitions =
+    \ [
+    \   {
+    \       '^\( *\)\[ \]\(.*\)': '\1[X]\2',
+    \       '^\( *\)\[X\]\(.*\)': '\1[ ]\2',
+    \   },
+    \ ]
 
 " ---------------
 " NERD Commenter
