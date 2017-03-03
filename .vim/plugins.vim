@@ -53,7 +53,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
-" Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 " Plug 'godlygeek/tabular'
 Plug 'rking/ag.vim'
@@ -309,3 +309,12 @@ function! SetQuickFixOpts()
     30wincmd _
     nnoremap <buffer> q :q<cr>
 endfunction
+
+" ---------------
+" NERD Commenter
+" ---------------
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
