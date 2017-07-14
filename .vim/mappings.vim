@@ -12,6 +12,9 @@ nnoremap <leader>sag :Ag <cword> *<CR>
 
 " close quickfix list
 nnoremap <leader>q :cclose<cr>
+" quickfix next/previous
+nnoremap <leader>j :cnext<cr>
+nnoremap <leader>k :cprevious<cr>
 
 " window navigation with Ctrl + hjkl
 nnoremap <c-h> <c-w>h
