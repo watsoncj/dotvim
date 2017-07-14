@@ -22,3 +22,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
 " Turn off current line highlight since it overrides spelling error highlight.
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal nocul
+
+" Better Git diff colors
+hi diffAdded ctermfg=107
+hi diffRemoved ctermfg=161
