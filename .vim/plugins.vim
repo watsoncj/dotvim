@@ -92,6 +92,9 @@ Plug 'tpope/vim-dispatch'
 "  JavaScript
 " ---------------
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'raichoo/purescript-vim'
+Plug 'briancollins/vim-jst'
 " Plug 'kchmck/vim-coffee-script'
 " Plug 'elzr/vim-json'
 " Plug 'othree/javascript-libraries-syntax.vim'
