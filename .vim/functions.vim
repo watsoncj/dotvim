@@ -87,3 +87,9 @@ command! -bar -bang -nargs=* Grunt call s:Grunt(<bang>0,<q-args>)
 "  Markdown Date Header
 " ---------------
 :autocmd FileType markdown nnoremap <buffer> <leader>d :read !date +"\#\# \%b \%d"<cr>
+
+" ---------------
+"  Jenkinsfile Syntax
+" ---------------
+au BufReadPost Jenkinsfile set syntax=groovy
+au BufReadPost Jenkinsfile set filetype=groovy
