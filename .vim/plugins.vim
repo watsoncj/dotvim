@@ -324,6 +324,7 @@ autocmd FileType markdown let g:switch_custom_definitions =
     \       '^\( *\)\[X\]\(.*\)': '\1[ ]\2',
     \   },
     \ ]
+autocmd FileType markdown set wrap
 
 " ---------------
 " NERD Commenter
