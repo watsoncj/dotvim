@@ -7,7 +7,7 @@ Plug 'tpope/vim-sensible'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'regedarek/ZoomWin', { 'on': 'ZoomWin' }
 
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'vim-scripts/UnconditionalPaste'
 
 " ---------
@@ -126,20 +126,10 @@ call plug#end()
 "autocmd BufWritePre *.js Autoformat
 
 " ---------------
-" Syntastic
+"  w0rp/ale
 " ---------------
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['scss'] }
-
-" Hat tip http://git.io/SPIBfg
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_full_redraws = 1
-let g:syntastic_javascript_checkers = ['jscs']
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:ale_linters = { 'javascript': ['jscs'], 'python': ['pylint'] }
+" let g:ale_sign_error = '✗'
 
 " ---------------
 " NERDTree
