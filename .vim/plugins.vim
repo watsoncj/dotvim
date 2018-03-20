@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
+
 Plug 'tpope/vim-sensible'
 
 " ---------
@@ -92,14 +93,10 @@ Plug 'keyboardfire/vim-minisnip'
 " ---------------
 "  JavaScript
 " ---------------
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'raichoo/purescript-vim'
-Plug 'briancollins/vim-jst'
-" Plug 'kchmck/vim-coffee-script'
-" Plug 'elzr/vim-json'
-" Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'Chiel92/vim-autoformat' " Requires Python support
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
+Plug 'briancollins/vim-jst', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "
 " ---------------
 "   HTML
@@ -325,3 +322,8 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+" ---------------
+" vim-jsx
+" ---------------
+let g:jsx_ext_required = 0
