@@ -5,8 +5,9 @@ Plug 'tpope/vim-sensible'
 " ---------
 " Search / navigation
 " ---------
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'regedarek/ZoomWin', { 'on': 'ZoomWin' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'regedarek/ZoomWin', { 'on': 'ZoomWin' }
 
 Plug 'w0rp/ale'
 Plug 'vim-scripts/UnconditionalPaste'
