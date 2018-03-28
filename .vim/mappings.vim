@@ -8,7 +8,7 @@ inoremap Jk <Esc>
 inoremap jK <Esc>
 
 " search project for word under cursor
-nnoremap <leader>sag :Ag <cword> *<CR>
+nnoremap <leader>sag :Rg <cword> *<CR>
 
 " close quickfix list
 nnoremap <leader>q :cclose<cr>
