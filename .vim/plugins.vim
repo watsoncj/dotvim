@@ -103,6 +103,17 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " ---------
+" vim-ripgrep
+" ---------
+" search project for word under cursor
+nnoremap <leader>sag :Rg<CR>
+nnoremap <leader>rg :Rg<CR>
+nnoremap <leader>ag :Rg<space>
+
+let g:rg_highlight = 1
+let g:rg_derive_root = 1
+
+" ---------
 "  Color Scheme
 " ---------
 set background=dark
