@@ -16,7 +16,9 @@ Plug 'w0rp/ale'
 " ---------
 " Colors
 " ---------
-Plug 'zacanger/angr.vim'
+" Plug 'zacanger/angr.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'ryanoasis/vim-devicons'
 
 " ---------
 " Commands
