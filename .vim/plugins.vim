@@ -7,6 +7,7 @@ Plug 'tpope/vim-sensible'
 " ---------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind', 'NERDTreeFocus'] }
+Plug 'andrewradev/splitjoin.vim'
 
 " ---------
 " Syntax
@@ -25,6 +26,7 @@ Plug 'ryanoasis/vim-devicons'
 " ---------
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -34,6 +36,7 @@ Plug 'tpope/vim-abolish'
 Plug 'AndrewRadev/switch.vim'
 Plug 'mutewinter/UnconditionalPaste'
 Plug 'dansomething/vim-visual-star-search'
+Plug 'itchyny/lightline.vim'
 
 " ---------
 "  Languages
@@ -41,6 +44,9 @@ Plug 'dansomething/vim-visual-star-search'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'groenewege/vim-less'
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' } " required by vim-vebugger
+Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
 
 " ---------
 "  PowerShell
@@ -52,7 +58,8 @@ call plug#end()
 " ---------
 "  w0rp/ale
 " ---------
-let g:ale_linters = { 'javascript': ['jscs'], 'python': ['pylint'] }
+" let g:ale_linters = { 'javascript': ['jscs'], 'python': ['pylint'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'python': ['pylint'], 'javascript.jsx': ['eslint'] }
 " let g:ale_sign_error = '✗'
 
 " ---------
@@ -119,7 +126,25 @@ let g:rg_derive_root = 1
 "  Color Scheme
 " ---------
 set background=dark
-colorscheme angr
+" colorscheme angr
+colorscheme nord
+
+let g:nord_comment_brightness = 20
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ] ]
+      \ },
+      \ 'component': {
+      \   'taco': '🌮',
+      \   'dolla': '💵',
+      \   'bread': '🍞',
+      \ },
+      \ }
 
 " ---------
 " Indent Guides
@@ -211,3 +236,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " vim-jsx
 " ---------
 let g:jsx_ext_required = 0
+
+" ---------
+" vim-vebugger
+" ---------
+let g:vebugger_leader='<Leader>d'
